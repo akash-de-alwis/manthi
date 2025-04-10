@@ -51,7 +51,7 @@ h1, h2, h3 {
 /* Media Query for Mobile View */
 @media (max-width: 768px) {
     .hero-section {
-        background-image: url('/img3.JPG'); /* Change to img3.JPG for mobile */
+        background-image: url('img3.JPG'); /* Change to img3.JPG for mobile */
     }
 }
 
