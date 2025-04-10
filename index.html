@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero-section">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1 class="title">Happy Birthday!</h1>
+            <h2 class="subtitle">To My Amazing Girlfriend</h2>
+            <div class="scroll-indicator">
+                <p>↓ Scroll Down</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="cake-section">
+            <div class="section-heading">
+                <span class="section-number">01</span>
+                <h2>Make a Wish</h2>
+            </div>
+            
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="cake-top"></div>
+                    <div class="cake-middle"></div>
+                    <div class="cake-bottom"></div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="birthday-wish">
+                <button id="wishButton" class="fancy-button">
+                    <span class="button-text">Make a Birthday Wish!</span>
+                    <span class="button-icon"><i class="fas fa-magic"></i></span>
+                </button>
+                <div id="wishResult" class="hidden">
+                    <p>✨ Your wish has been sent to the stars! ✨</p>
+                    <div class="confetti-container" id="confetti"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="message-section">
+            <div class="section-heading">
+                <span class="section-number">02</span>
+                <h2>For You</h2>
+            </div>
+            
+            <div class="message-card">
+                <div class="card-decorations">
+                    <div class="decoration-heart heart-1"><i class="fas fa-heart"></i></div>
+                    <div class="decoration-heart heart-2"><i class="fas fa-heart"></i></div>
+                    <div class="decoration-flourish flourish-1"></div>
+                    <div class="decoration-flourish flourish-2"></div>
+                </div>
+                
+                <h3>On Your Special Day</h3>
+                <p id="birthday-message">
+                    Today is all about celebrating the amazing person you are.
+                    Thank you for bringing so much joy and love into my life.
+                    I'm so grateful to have you by my side.
+                </p>
+                <div class="message-controls">
+                    <button id="prevMessage" class="message-nav-button"><i class="fas fa-chevron-left"></i></button>
+                    <button id="nextMessage" class="message-nav-button"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="message-indicator">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="photo-memory-section">
+            <div class="section-heading">
+                <span class="section-number">03</span>
+                <h2>Our Memories</h2>
+            </div>
+            <div class="photo-gallery">
+                <div class="photo" onclick="openLightbox('img1.jpg')">
+                    <img src="img1.png" alt="Memory 1">
+                    <div class="photo-overlay">
+                        <i class="fas fa-heart"></i>
+                        <span class="photo-caption">First Smile</span>
+                    </div>
+                </div>
+                <div class="photo" onclick="openLightbox('img2.jpg')">
+                    <img src="img2.jpg" alt="Memory 2">
+                    <div class="photo-overlay">
+                        <i class="fas fa-heart"></i>
+                        <span class="photo-caption">Our Adventure</span>
+                    </div>
+                </div>
+                <div class="photo" onclick="openLightbox('img3.jpg')">
+                    <img src="img2.png" alt="Memory 3">
+                    <div class="photo-overlay">
+                        <i class="fas fa-heart"></i>
+                        <span class="photo-caption">Sweet Moments</span>
+                    </div>
+                </div>
+                <div class="photo" onclick="openLightbox('img4.jpg')">
+                    <img src="memo1.JPG" alt="Memory 4">
+                    <div class="photo-overlay">
+                        <i class="fas fa-heart"></i>
+                        <span class="photo-caption">Forever Us</span>
+                    </div>
+                </div>
+                <div class="photo" onclick="openLightbox('img5.jpg')">
+                    <img src="memo2.jpg" alt="Memory 5">
+                    <div class="photo-overlay">
+                        <i class="fas fa-heart"></i>
+                        <span class="photo-caption">Love in Bloom</span>
+                    </div>
+                </div>
+                <div class="photo" onclick="openLightbox('img6.jpg')">
+                    <img src="img1.png" alt="Memory 6">
+                    <div class="photo-overlay">
+                        <i class="fas fa-heart"></i>
+                        <span class="photo-caption">You & Me</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-memory-section">
+            <div class="section-heading">
+                <span class="section-number">04</span>
+                <h2>Video Memory</h2>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video id="memoryVideo" muted>
+                        <source src="manthi.MP4" type="video/mp4"> <!-- Replace with your portrait video -->
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay">
+                        <button id="playVideoBtn" class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="video-decorations">
+                        <div class="decoration-heart heart-1"><i class="fas fa-heart"></i></div>
+                        <div class="decoration-heart heart-2"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+                <p class="video-caption">A Special Moment Captured Just for You</p>
+            </div>
+        </section>
+
+        <section class="countdown-section">
+            <div class="section-heading">
+                <span class="section-number">05</span>
+                <h2>The Countdown</h2>
+            </div>
+            
+            <div class="countdown-container">
+                <div class="countdown-header">
+                    <h3>Time Until Your Special Day</h3>
+                    <div class="countdown-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                </div>
+                
+                <div class="countdown-display">
+                    <div class="countdown-unit">
+                        <div id="countdown-hours" class="countdown-number">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit">
+                        <div id="countdown-minutes" class="countdown-number">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-unit">
+                        <div id="countdown-seconds" class="countdown-number">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="love-letter-section">
+            <div class="section-heading">
+                <span class="section-number">06</span>
+                <h2>My Love Letter to You</h2>
+            </div>
+            <div class="letter-container">
+                <div class="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-content">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="envelope-back"></div>
+                    <div class="sparkle-container"></div>
+                </div>
+                <div class="letter" id="love-letter">
+                    <div class="letter-content">
+                        <h3>My Dearest,</h3>
+                        <p>As you celebrate another year of your beautiful life, I wanted to take a moment to tell you just how much you mean to me.</p>
+                        <img src="letterimg.JPG" alt="A special moment" class="letter-photo">
+                        <p>From the moment we met, you've brought nothing but joy, laughter, and love into my world. Your smile brightens even my darkest days, and your kind heart inspires me to be a better person.</p>
+                        <p>I cherish every memory we've created together and look forward to making countless more. Thank you for being you - the most amazing, loving, and incredible person I know.</p>
+                        <p>May your birthday be as special as you are, filled with all the happiness you deserve.</p>
+                        <p class="signature">Forever yours,<br><span>Me</span></p>
+                    </div>
+                </div>
+                <button id="openLetterBtn" class="letter-button">
+                    <span>Open My Letter</span>
+                    <i class="fas fa-envelope-open"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="music-section">
+            <div class="section-heading">
+                <span class="section-number">07</span>
+                <h2>Our Song</h2>
+            </div>
+            
+            <div class="music-container">
+                <div class="music-player">
+                    <div class="music-info">
+                        <h3 id="song-title">Special Song For You</h3>
+                        <p id="song-artist">Your Favorite Artist</p>
+                    </div>
+                    
+                    <div class="music-controls">
+                        <button id="playButton" class="music-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button id="pauseButton" class="music-btn hidden">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up"></i>
+                            <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                        </div>
+                    </div>
+                    
+                    <div class="music-visualizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    
+                    <div id="autoplayPrompt" class="hidden">
+                        <p>Click "Play" to start our song! 🎶</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="heart-animation">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p>Made with love, just for you</p>
+                <div class="footer-date">2025</div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9252f16d69e3458e',t:'MTc0Mjc4NTQ4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
