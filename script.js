@@ -380,30 +380,29 @@ function initVideoPlayer() {
     const video = document.getElementById('memoryVideo');
     const playBtn = document.getElementById('playVideoBtn');
     const overlay = document.querySelector('.video-overlay');
-    let hasPlayed = false;
+    const pauseButton = document.getElementById('pauseButton');
+    const playButton = document.getElementById('playButton');
+    const visualizer = document.querySelector('.music-visualizer');
 
-    // Play video on button click
+    // Ensure video starts muted and does not autoplay
+    video.muted = true; // Default state is muted
+    video.autoplay = false; // Explicitly disable autoplay
+
+    // Play video with sound on button click
     playBtn.addEventListener('click', () => {
+        video.muted = false; // Unmute when user plays
         video.play();
         overlay.classList.add('hidden');
         video.controls = true; // Show native controls after play
-        hasPlayed = true;
+        stopMusic(); // Stop music when video starts
     });
 
-    // Optional: Play video when section is scrolled into view
-    window.addEventListener('scroll', () => {
-        const videoSection = document.querySelector('.video-memory-section');
-        const sectionTop = videoSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (sectionTop < windowHeight * 0.75 && !hasPlayed) {
-            video.play();
-            overlay.classList.add('hidden');
-            video.controls = true;
-            hasPlayed = true;
-        }
-    }, { passive: true });
+    // Stop music when video starts playing (e.g., via native controls after initial play)
+    video.addEventListener('play', () => {
+        stopMusic();
+    });
 
-    // Pause video when it ends or user pauses it
+    // Show overlay when video ends or is paused
     video.addEventListener('ended', () => {
         overlay.classList.remove('hidden');
         video.controls = false;
@@ -414,4 +413,14 @@ function initVideoPlayer() {
             overlay.classList.remove('hidden');
         }
     });
+
+    // Helper function to stop the music
+    function stopMusic() {
+        if (audio && !audio.paused) {
+            audio.pause();
+            pauseButton.classList.add('hidden');
+            playButton.classList.remove('hidden');
+            visualizer.classList.remove('playing');
+        }
+    }
 }
