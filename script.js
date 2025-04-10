@@ -253,7 +253,7 @@ window.addEventListener('scroll', () => {
 
 // Preload background images
 function preloadImages() {
-    const images = ['./img1.jpg', './img2.png']; /* Adjust path as needed */
+    const images = ['./img1.jpg', './img4.png']; /* Adjust path as needed */
     images.forEach(src => {
         const img = new Image();
         img.src = src;
