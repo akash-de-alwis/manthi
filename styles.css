@@ -38,7 +38,7 @@ h1, h2, h3 {
 .hero-section {
     height: 100vh;
     position: relative;
-    background-image: url('/img2.png'); /* Default image */
+    background-image: url('img2.png'); /* Default image */
     background-size: cover;
     background-position: center;
     display: flex;
